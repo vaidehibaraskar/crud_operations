@@ -10,7 +10,7 @@ def homeview(request):
 def addview(request):
     form = PersonForm()
     if request.method=="POST":
-        form = PersonForm(request.POST)
+        form = PersonForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
     return render(request,"app1/add.html",{"form":form})
@@ -19,11 +19,11 @@ def showview(request):
     per = Person.objects.all()
     return render(request,"app1/show.html",{"obj":per})
 
-def updateview(request,pk):
+def updateview(request,pk=None):
     obj = Person.objects.get(pid = pk)
     form = PersonForm(instance=obj)
     if request.method=="POST":
-        form = PersonForm(request.POST,instance=obj)
+        form = PersonForm(request.POST,request.FILES,instance=obj)
         if form.is_valid():
             form.save()
             return redirect("/a1/sv/")

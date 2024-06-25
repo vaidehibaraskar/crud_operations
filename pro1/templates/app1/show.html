@@ -13,6 +13,8 @@
         <td>Name</td>
         <td>Age</td>
         <td>City</td>
+        <td>ADDRESS</td>
+        <td>PROFILE_PIC</td>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +24,8 @@
         <td>{{person.name}}</td>
         <td>{{person.age}}</td>
         <td>{{person.city}}</td>
+        <td>{{person.address}}</td>
+        <td><img src="{{person.profile_picture.url}}" height="100px" width="100px"></td>
         <td>
             <a href="/a1/uv/{{person.pid}}"><button class="btn btn-success">Update</button> </a>
             <a href="/a1/dv/{{person.pid}}"><button class="btn btn-success">Delete</button> </a>
