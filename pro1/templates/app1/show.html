@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+
+{%block title%}
+    <title>Title</title>
+{%endblock%}
+
+{%block content%}
+<h1>Person Details</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <td>Person_Id</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>City</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for person in obj %}
+    <tr>
+        <td>{{person.pid}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+        <td>{{person.city}}</td>
+        <td>
+            <a href="/a1/uv/{{person.pid}}"><button class="btn btn-success">Update</button> </a>
+            <a href="/a1/dv/{{person.pid}}"><button class="btn btn-success">Delete</button> </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{%endblock%}
